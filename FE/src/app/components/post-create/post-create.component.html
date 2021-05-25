@@ -1,0 +1,64 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2">
+
+    </div>
+    <div class="col-8">
+      <div class="mb-2 mt-2">
+        <button class="btn btn-success me-2" type="button" [routerLink]="['']">Quay lại</button>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h2>Tạo câu hỏi</h2>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="formCreate" (ngSubmit)="createPostComponent()" novalidate>
+            <div class="form-group">
+              <label for="title">Tiêu đề</label>
+              <input type="text" class="form-control" id="title" placeholder="Nhập tiêu đề" formControlName="title">
+              <div style="color: red"
+                   *ngIf="formCreate.controls.title.errors?.required && formCreate.controls.title.touched">
+                Cần nhập dữ liệu
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="content">Nội dung</label>
+              <textarea class="form-control" id="content" rows="3" placeholder="Nhập nội dung"
+                        formControlName="content"></textarea>
+              <div style="color: red"
+                   *ngIf="formCreate.controls.content.errors?.required && formCreate.controls.content.touched">
+                Cần nhập dữ liệu
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="postType">Loại câu hỏi</label>
+              <select class="form-control" id="postType" formControlName="postType">
+                <option [ngValue]="'Giáo trình'">Giáo trình</option>
+                <option [ngValue]="'Trang thiết bị'">Trang thiết bị</option>
+                <option [ngValue]="'Thời khóa biểu'">Thời khóa biểu</option>
+              </select>
+              <div style="color: red"
+                   *ngIf="formCreate.controls.postType.errors?.required && formCreate.controls.postType.touched">
+                Cần chọn loại câu hỏi
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center mb-2">
+              <button type="button" class="btn btn-secondary mr-1" [routerLink]="['']">Hủy</button>
+              <button type="submit" class="btn btn-primary" [disabled]="!formCreate.valid">Tạo câu hỏi</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card-footer">
+
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+
+    </div>
+  </div>
+</div>

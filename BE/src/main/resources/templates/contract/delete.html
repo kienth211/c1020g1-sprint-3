@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: html_head">
+</head>
+<body>
+
+<div th:replace="fragments :: nav_top">
+</div>
+<h3>Contract Manager</h3>
+
+<section>
+    <nav id="nav_left">
+        <ul>
+            <li><a href="/">Contract list</a></li>
+            <li><a href="/contract/create">Create contract</a></li>
+        </ul>
+    </nav>
+    <article>
+        <div class="table-fit justify-content-center">
+            <form action="#" th:action="@{/contract/delete}" th:object="${contract}"
+                  method="POST" novalidate="novalidate">
+                <table class="table table-striped table-bordered table-hover thead-dark table-responsive"
+                       id="tableEmployee">
+                    <input type="hidden" th:field="*{contractId}"/>
+                    <input type="hidden" th:field="*{contractCode}"/>
+                    <input type="hidden" th:field="*{contractType}"/>
+                    <input type="hidden" th:field="*{contractDate}"/>
+                    <input type="hidden" th:field="*{contractCost}"/>
+                    <input type="hidden" th:field="*{contractArea}"/>
+                    <input type="hidden" th:field="*{customer}"/>
+                    <thead class="thead-dark">
+                    <tr>
+                        <th >Code</th>
+                        <th >Type</th>
+                        <th >Date</th>
+                        <th >Cost</th>
+                        <th >Area</th>
+                        <th >Customer</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td th:text="${contract.contractCode}"></td>
+                        <td th:text="${contract.contractType}"></td>
+                        <td th:text="${contract.contractDate}"></td>
+                        <td th:text="${contract.contractCost}"></td>
+                        <td th:text="${contract.contractArea}"></td>
+                        <td th:text="${contract.customer.customerName}"></td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+    </article>
+</section>
+<footer th:replace="fragments :: footer">
+</footer>
+</body>
+</html>

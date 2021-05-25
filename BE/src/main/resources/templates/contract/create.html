@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: html_head">
+
+</head>
+<body>
+<div th:replace="fragments :: nav_top">
+</div>
+
+<h3>Contract Manager</h3>
+
+<section>
+    <nav id="nav_left">
+        <ul>
+            <li><a href="/">Contract list</a></li>
+            <li><a href="/contract/create">Create contract</a></li>
+        </ul>
+    </nav>
+    <article>
+        <div id="form">
+            <form th:action="@{/contract/create}" th:object="${contract}"
+                  method="POST" novalidate="novalidate">
+<!--                <input type="hidden" th:field="*{contractId}"/>-->
+
+<!--                <div class="form-group col-md-6">-->
+<!--                    <label>ID</label>-->
+<!--                    <input type="text" class="form-control" th:field="*{contractId}">-->
+<!--                    <div style="color: red">-->
+<!--                        <td th:if="${#fields.hasErrors('contractId')}" th:errors="*{contractId}"></td>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                <div class="form-group col-md-6">
+                    <label>Code</label>
+                    <input type="text" class="form-control" th:field="*{contractCode}">
+                    <div style="color: red">
+                        <td th:if="${#fields.hasErrors('contractCode')}" th:errors="*{contractCode}"></td>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Customer</label>
+                    <select class="form-control js-example-basic-single" th:field="*{contractType}">
+                        <option value="Đất">Đất</option>
+                        <option value="Nhà và Đất">Nhà và Đất</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Date</label>
+                    <input type="date" class="form-control" th:field="*{contractDate}">
+                    <div style="color: red">
+                        <td th:if="${#fields.hasErrors('contractDate')}" th:errors="*{contractDate}"></td>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Cost</label>
+                    <input type="number" class="form-control" th:field="*{contractCost}">
+                    <div style="color: red">
+                        <td th:if="${#fields.hasErrors('contractCost')}" th:errors="*{contractCost}"></td>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Area</label>
+                    <input type="number" class="form-control" th:field="*{contractArea}">
+                    <div style="color: red">
+                        <td th:if="${#fields.hasErrors('contractArea')}" th:errors="*{contractArea}"></td>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Customer</label>
+                    <select class="form-control js-example-basic-single" th:field="*{customer}">
+                        <option th:each="customer : ${customers}"
+                                th:value="${customer.customerId}"
+                                th:text="${customer.customerName}"></option>
+                    </select>
+                </div>
+
+                <input type="submit" value="Create">
+            </form>
+        </div>
+    </article>
+</section>
+<footer th:replace="fragments :: footer">
+</footer>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
+</script>
+</html>

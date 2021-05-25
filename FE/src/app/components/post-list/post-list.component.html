@@ -1,0 +1,46 @@
+<div class="container-fluid mt-2 mb-2">
+  <div class="d-flex row m-1">
+    <button class="btn btn-outline-success mr-auto" type="button" [routerLink]="['/post-create']">Tạo câu hỏi</button>
+    <div class="d-flex">
+      <input class="form-control mr-1" type="search" placeholder="Tiêu đề" aria-label="Search"
+             [(ngModel)]="name">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-between m-1">
+
+</div>
+<div class="container-fluid">
+  <table class="table table-striped m-1">
+    <thead class="thead-dark">
+    <tr>
+      <th>STT</th>
+      <th>Tiêu đề</th>
+      <th>Loại câu hỏi</th>
+      <th>Ngày đăng</th>
+      <th>Người hỏi</th>
+      <th>Người đáp</th>
+      <th>Tình trạng</th>
+      <th>Thao tác</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let post of posts">
+      <td>{{post.id}}</td>
+      <td>{{post.title}}</td>
+      <td>{{post.postType}}</td>
+      <td>{{post.postTime}}</td>
+      <td>{{post.ask.userName}}</td>
+      <td *ngIf="!post.answer">N/A</td>
+      <td *ngIf="post.answer">{{post.answer.userName}}</td>
+      <td *ngIf="post.status == 1">Chưa trả lời</td>
+      <td *ngIf="post.status == 2">Đã trả lời</td>
+      <td>
+        <button class="btn btn-primary mr-2" [routerLink]="['/post-edit/' + post.id]">Sửa</button>
+        <button class="btn btn-danger" (click)=openDialog(post.id)>Xóa</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

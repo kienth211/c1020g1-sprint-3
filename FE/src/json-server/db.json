@@ -1,0 +1,182 @@
+{
+  "customer_type": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinum"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    }
+  ],
+  "customers": [
+    {
+      "id": 2,
+      "code": "KH-0002",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "name": "Kiên",
+      "birthday": "11/11/1999",
+      "idCard": "123456789",
+      "phone": "0912345678",
+      "email": "kien@kien.kien1",
+      "address": "Nghệ An"
+    },
+    {
+      "id": 3,
+      "code": "KH-0003",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "name": "Cường",
+      "birthday": "10/10/1998",
+      "idCard": "123456789",
+      "phone": "0356109144",
+      "email": "cuong@cuong.cuong",
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": 4,
+      "code": "KH-0005",
+      "customerType": {
+        "id": 2,
+        "name": "Platinum"
+      },
+      "name": "Kieen",
+      "birthday": "12/12/1212",
+      "idCard": "123456789",
+      "phone": "0912345678",
+      "email": "kien@kien.kien",
+      "address": "abc"
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "Lúa",
+      "from": "Việt Nam",
+      "price": 10,
+      "unit": "tấn"
+    },
+    {
+      "id": 2,
+      "name": "Gỗ",
+      "from": "Lào",
+      "price": 20,
+      "unit": "tấn"
+    },
+    {
+      "id": 3,
+      "name": "Thốt nốt",
+      "from": "Campuchia",
+      "price": 30,
+      "unit": "kg"
+    },
+    {
+      "id": 4,
+      "name": "Cá",
+      "from": "Thái lan",
+      "price": 40,
+      "unit": "tấn"
+    },
+    {
+      "id": 5,
+      "name": "Thịt",
+      "from": "Trung Quốc",
+      "price": 50,
+      "unit": "kg"
+    }
+  ],
+  "package": [
+    {
+      "id": 1,
+      "code": "LH-0001",
+      "product": {
+        "id": 1,
+        "name": "Lúa",
+        "from": "Việt Nam",
+        "price": 10,
+        "unit": "tấn"
+      },
+      "number": 10,
+      "importDate": "02/01/2021",
+      "productDate": "01/01/2021",
+      "endDate": "03/01/2021"
+    },
+    {
+      "id": 2,
+      "code": "LH-0002",
+      "product": {
+        "id": 2,
+        "name": "Gỗ",
+        "from": "Lào",
+        "price": 20,
+        "unit": "tấn"
+      },
+      "number": 10,
+      "importDate": "02/02/2021",
+      "productDate": "01/02/2021",
+      "endDate": "03/02/2021"
+    },
+    {
+      "id": 3,
+      "code": "LH-0003",
+      "product": {
+        "id": 3,
+        "name": "Thốt nốt",
+        "from": "Campuchia",
+        "price": 30,
+        "unit": "kg"
+      },
+      "number": 10,
+      "importDate": "02/03/2021",
+      "productDate": "01/03/2021",
+      "endDate": "03/03/2021"
+    },
+    {
+      "id": 4,
+      "code": "LH-0004",
+      "product": {
+        "id": 4,
+        "name": "Cá",
+        "from": "Thái lan",
+        "price": 40,
+        "unit": "tấn"
+      },
+      "number": 10,
+      "importDate": "02/04/2021",
+      "productDate": "01/04/2021",
+      "endDate": "03/04/2021"
+    },
+    {
+      "id": 5,
+      "code": "LH-0005",
+      "product": {
+        "id": 5,
+        "name": "Thịt",
+        "from": "Trung Quốc",
+        "price": 50,
+        "unit": "kg"
+      },
+      "number": 10,
+      "importDate": "02/05/2021",
+      "productDate": "01/05/2021",
+      "endDate": "03/05/2021"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: html_head">
+</head>
+<body>
+<div th:replace="fragments :: nav_top">
+
+</div>
+<h3>Contract Manager</h3>
+<section>
+    <nav id="nav_left">
+        <ul>
+            <li><a href="/">Contract list</a></li>
+            <li><a href="/contract/create">Create contract</a></li>
+        </ul>
+    </nav>
+    <article>
+        <div class="table-fit justify-content-center">
+            <table class="table table-striped table-bordered table-hover thead-dark table-responsive"
+                   id="tableEmployee">
+                <thead class="thead-dark">
+                <tr>
+                    <th >Id</th>
+                    <th >Customer</th>
+                    <th >Start Date</th>
+                    <th >End Date</th>
+                    <th >Deposit</th>
+                    <th >Total Money</th>
+                    <th >Employee</th>
+                    <th >Service</th>
+                    <th >Attach Contract</th>
+                    <th >Action</th>
+                    <th >Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="contract : ${contracts}">
+                    <td th:text="${contract.contractId}"></td>
+                    <td th:text="${contract.customer.customerName}"></td>
+                    <td th:text="${contract.contractStartDate}"></td>
+                    <td th:text="${contract.contractEndDate}"></td>
+                    <td th:text="${contract.contractDeposit}"></td>
+                    <td th:text="${contract.contractTotalMoney}"></td>
+                    <td th:text="${contract.employee.employeeName}"></td>
+                    <td th:text="${contract.service.serviceName}"></td>
+                    <td>
+                        <span th:each="attachService : ${contract.attachServices}"
+                              th:text="${attachService.attachServiceName}">
+
+                        </span>
+                    </td>
+                    <td><a th:href="@{contract/edit(id=${contract.contractId})}">edit</a></td>
+                    <td><a th:href="@{contract/delete(id=${contract.contractId})}">delete</a></td>
+                </tr>
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+            <div>
+                <a th:href="@{'/contract'(page=${contracts.number - 1})}" th:if="${contracts.hasPrevious()}">Previous</a>
+                <span th:text="${contracts.number + 1}"></span>/<span th:text="${contracts.totalPages}"></span>
+                <a th:href="@{'/contract'(page=${contracts.number + 1})}" th:if="${contracts.hasNext()}">Next</a>
+            </div>
+        </div>
+    </article>
+</section>
+<footer th:replace="fragments :: footer">
+
+</footer>
+</body>
+</html>
