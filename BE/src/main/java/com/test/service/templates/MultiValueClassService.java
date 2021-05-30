@@ -1,4 +1,4 @@
-package com.test.service;
+package com.test.service.templates;
 
 import java.util.List;
 

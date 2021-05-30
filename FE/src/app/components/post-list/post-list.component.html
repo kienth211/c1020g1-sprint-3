@@ -12,35 +12,91 @@
 
 </div>
 <div class="container-fluid">
-  <table class="table table-striped m-1">
-    <thead class="thead-dark">
-    <tr>
-      <th>STT</th>
-      <th>Tiêu đề</th>
-      <th>Loại câu hỏi</th>
-      <th>Ngày đăng</th>
-      <th>Người hỏi</th>
-      <th>Người đáp</th>
-      <th>Tình trạng</th>
-      <th>Thao tác</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let post of posts">
-      <td>{{post.id}}</td>
-      <td>{{post.title}}</td>
-      <td>{{post.postType}}</td>
-      <td>{{post.postTime}}</td>
-      <td>{{post.ask.userName}}</td>
-      <td *ngIf="!post.answer">N/A</td>
-      <td *ngIf="post.answer">{{post.answer.userName}}</td>
-      <td *ngIf="post.status == 1">Chưa trả lời</td>
-      <td *ngIf="post.status == 2">Đã trả lời</td>
-      <td>
-        <button class="btn btn-primary mr-2" [routerLink]="['/post-edit/' + post.id]">Sửa</button>
-        <button class="btn btn-danger" (click)=openDialog(post.id)>Xóa</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col-2 bg-success">
+      One of three columns
+    </div>
+    <div class="col-8 ">
+      <nav>
+        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-list-home" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-list-home" aria-selected="true">Danh sách món</a>
+          <a class="nav-item nav-link" id="nav-list-favourite" data-toggle="tab" href="#nav-favourite" role="tab" aria-controls="nav-profile" aria-selected="false">Món hot</a>
+          <a class="nav-item nav-link" id="nav-list-new" data-toggle="tab" href="#nav-new" role="tab" aria-controls="nav-contact" aria-selected="false">Món mới</a>
+          <a class="nav-item nav-link" id="nav-list-highest" data-toggle="tab" href="#nav-highest" role="tab" aria-controls="nav-contact" aria-selected="false">Giá cao</a>
+          <a class="nav-item nav-link" id="nav-list-lowest" data-toggle="tab" href="#nav-lowest" role="tab" aria-controls="nav-contact" aria-selected="false">Giá thấp</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="d-flex flex-wrap bg-success justify-content-between p-4">
+            <div class="card mb-3 border-0" style="width: 18rem;" [routerLink]="['/dish-details/' + 2]">
+              <div class="card-header">Header</div>
+              <div class="card-body p-0">
+                <!--            <h5 class="card-title">Primary card title</h5>-->
+                <!--            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+                <img class="mw-100" style="width: 6rem"
+                     src="https://cdn.pastaxi-manager.onepas.vn/Content/Uploads/Prices/nguyenhuong/foodhouset4/food-house-1.jpg"
+                     alt="">
+                <!--            src="https://cdn.tgdd.vn/Files/2017/03/30/966560/cach-nau-chao-luon-ngon-dung-chuan-xu-nghe-201909230906056466.jpg"-->
+              </div>
+              <div class="card-footer">
+                Footer
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-favourite" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+        </div>
+        <div class="tab-pane fade" id="nav-new" role="tabpanel" aria-labelledby="nav-contact-tab">
+          3
+        </div>
+        <div class="tab-pane fade" id="nav-highest" role="tabpanel" aria-labelledby="nav-contact-tab">
+          4
+        </div>
+        <div class="tab-pane fade" id="nav-lowest" role="tabpanel" aria-labelledby="nav-contact-tab">
+          5
+        </div>
+      </div>
+
+    </div>
+    <div class="col-2 bg-success">
+      One of three columns
+    </div>
+  </div>
 </div>
+
+
+<!--<div class="container-fluid">-->
+<!--  <table class="table table-striped m-1">-->
+<!--    <thead class="thead-dark">-->
+<!--    <tr>-->
+<!--      <th>STT</th>-->
+<!--      <th>Tiêu đề</th>-->
+<!--      <th>Loại câu hỏi</th>-->
+<!--      <th>Ngày đăng</th>-->
+<!--      <th>Người hỏi</th>-->
+<!--      <th>Người đáp</th>-->
+<!--      <th>Tình trạng</th>-->
+<!--      <th>Thao tác</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr *ngFor="let post of posts">-->
+<!--      <td>{{post.id}}</td>-->
+<!--      <td>{{post.title}}</td>-->
+<!--      <td>{{post.postType}}</td>-->
+<!--      <td>{{post.postTime}}</td>-->
+<!--      <td>{{post.ask.userName}}</td>-->
+<!--      <td *ngIf="!post.answer">N/A</td>-->
+<!--      <td *ngIf="post.answer">{{post.answer.userName}}</td>-->
+<!--      <td *ngIf="post.status == 1">Chưa trả lời</td>-->
+<!--      <td *ngIf="post.status == 2">Đã trả lời</td>-->
+<!--      <td>-->
+<!--        <button class="btn btn-primary mr-2" [routerLink]="['/post-edit/' + post.id]">Sửa</button>-->
+<!--        <button class="btn btn-danger" (click)=openDialog(post.id)>Xóa</button>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--</div>-->

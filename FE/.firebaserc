@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "images-upload-a168f": {
+      "hosting": {
+        "module5-test": [
+          "images-upload-a168f"
+        ]
+      }
+    }
+  }
+}
